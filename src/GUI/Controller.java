@@ -1,8 +1,8 @@
 package GUI;
 
-
 import javafx.fxml.FXML;
 
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -12,11 +12,15 @@ import org.pocketbooker.entity.model.Debit;
 import org.pocketbooker.entity.model.DebitTypes;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 
 public class Controller {
-
+    @FXML
+    private TabPane mainTabPane;
     @FXML
     private TableView<Credit> creditTableView;
     @FXML
@@ -43,6 +47,19 @@ public class Controller {
     @FXML
     private TableColumn<Debit,DebitTypes> debitTypeTableColumn;
 
+    @FXML
+    private TableView<Object> commonTableView;
+    @FXML
+    private TableColumn<Object, Integer> commonIdTableColumn;
+    @FXML
+    private TableColumn<Object,Date> commonDateTableColumn;
+    @FXML
+    private TableColumn<Object,BigDecimal> commonSumTableColumn;
+    @FXML
+    private TableColumn<Object,String> commonCurrencyTableColumn;
+    @FXML
+    private TableColumn<Object,DebitTypes> commonTypeTableColumn;
+
     private Main main;
 
     public Controller() {
@@ -57,25 +74,46 @@ public class Controller {
         dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("dateTime"));
         sumTableColumn.setCellValueFactory(new PropertyValueFactory<>("sum"));
         currencyTableColumn.setCellValueFactory(new PropertyValueFactory<>("currency"));
-        creditTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("creditTypeName"));
+        creditTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("TypeName"));
         /**
-         * dredit table initialize
+         * debit table initialize
          */
         debitIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         debitDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("dateTime"));
         debitSumTableColumn.setCellValueFactory(new PropertyValueFactory<>("sum"));
         debitCurrencyTableColumn.setCellValueFactory(new PropertyValueFactory<>("currency"));
-        debitTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("debitTypeName"));
+        debitTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("TypeName"));
+        /**
+         * common table initialize
+         */
+        commonIdTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        commonDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("dateTime"));
+        commonSumTableColumn.setCellValueFactory(new PropertyValueFactory<>("sum"));
+        commonCurrencyTableColumn.setCellValueFactory(new PropertyValueFactory<>("currency"));
+        commonTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("TypeName"));
+
     }
 
-    public Main getMain() {
-        return main;
+    private void setCreditTableView(Main main) throws Exception {
+        this.creditTableView.setItems(main.getCredits());
+    }
+
+    private void setDebitTableView(Main main) throws Exception{
+        this.debitTableView.setItems(main.getDebits());
+    }
+
+    private void setCommonTableView(Main main) {
+        this.commonTableView.setItems(main.getCommonList());
     }
 
     public void setMain(Main main) throws Exception{
         this.main = main;
+        setCreditTableView(this.main);
+        setDebitTableView(this.main);
+        setCommonTableView(this.main);
+    }
 
-        creditTableView.setItems(this.main.getCredits());
-        debitTableView.setItems(this.main.getDebits());
+    private void showTotalSums(){
+
     }
 }

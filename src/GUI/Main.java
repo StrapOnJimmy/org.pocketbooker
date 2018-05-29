@@ -26,6 +26,7 @@ public class Main extends Application{
     private BorderPane pocketBookerUI;
     private ObservableList<Debit> debits = FXCollections.observableArrayList();
     private ObservableList<Credit> credits = FXCollections.observableArrayList();
+    private ObservableList<Object> commonList = FXCollections.observableArrayList();
     private ConnectionSource connectionSource = new JdbcConnectionSource(DefaultValues.connectionSource);
 
     @Override
@@ -37,9 +38,12 @@ public class Main extends Application{
         showTabsLayout();
     }
 
-    public Main() throws Exception {
+    @Override
+    public void init() throws Exception {
         Init.init();
     }
+
+    public Main() throws Exception {}
 
     /**
      *initialize a main window of a pocket booker application
@@ -110,6 +114,13 @@ public class Main extends Application{
         credits.addAll(creditList);
 
         return credits;
+    }
+
+    public ObservableList<Object> getCommonList() {
+        commonList.addAll(credits);
+        commonList.addAll(debits);
+
+        return commonList;
     }
 
     public static void main(String[] args) {

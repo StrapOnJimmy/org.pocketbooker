@@ -15,6 +15,9 @@ import java.util.List;
 
 public class Init {
 
+    private Init(){}
+
+
     public static void init() throws SQLException{
 
         String DATABASE_URL = "jdbc:sqlite:pocketbooker.db";

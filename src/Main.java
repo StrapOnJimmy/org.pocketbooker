@@ -60,7 +60,7 @@ public class Main {
             System.out.println("Currency = " + item.getCurrency());
             item.setCurrency(Currency.getInstance("USD").toString());
             creditDao.update(item);
-            System.out.println("Credit type = " + item.getCreditTypeName());
+            System.out.println("Credit type = " + item.getTypeName());
 //            creditDao.deleteById(item.getId());
             System.out.println("====================DELETED=========================");
         }

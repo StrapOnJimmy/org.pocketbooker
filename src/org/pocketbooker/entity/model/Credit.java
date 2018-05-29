@@ -18,16 +18,16 @@ public class Credit {
     @DatabaseField(canBeNull = false)
     private String currency;
     @DatabaseField(canBeNull = false)
-    private String creditTypeName;
+    private String TypeName;
 
     public Credit() {
     }
 
-    public Credit(Date dateTime, BigDecimal sum, String currency, CreditTypes creditTypeName) {
+    public Credit(Date dateTime, BigDecimal sum, String currency, CreditTypes TypeName) {
         this.dateTime = dateTime;
         this.sum = sum;
         this.currency = currency;
-        this.creditTypeName = creditTypeName.getName();
+        this.TypeName = TypeName.getName();
     }
 
     public int getId() {
@@ -62,14 +62,14 @@ public class Credit {
         this.currency = currency;
     }
 
-    public String getCreditTypeName() {
-        return creditTypeName;
+    public String getTypeName() {
+        return TypeName;
     }
 
-    public void setCreditTypeName(String creditTypeName) {
+    public void setTypeName(String typeName) {
         CreditTypes creditType = new CreditTypes();
-        creditType.setName(creditTypeName);
-        this.creditTypeName = creditType.getName();
+        creditType.setName(typeName);
+        this.TypeName = creditType.getName();
     }
 
     @Override

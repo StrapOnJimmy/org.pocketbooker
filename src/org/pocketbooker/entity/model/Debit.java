@@ -18,7 +18,7 @@ public class Debit {
     @DatabaseField(canBeNull = false)
     private String currency;
     @DatabaseField(canBeNull = false)
-    private String debitTypeName;
+    private String TypeName;
 
     public Debit() {
     }
@@ -27,7 +27,7 @@ public class Debit {
         this.dateTime = dateTime;
         this.sum = sum;
         this.currency = currency;
-        this.debitTypeName = debitTypes.getName();
+        this.TypeName = debitTypes.getName();
     }
 
     public int getId() {
@@ -62,14 +62,14 @@ public class Debit {
         this.currency = currency;
     }
 
-    public String getDebitTypeName() {
-        return debitTypeName;
+    public String getTypeName() {
+        return TypeName;
     }
 
-    public void setDebitTypeName(String debitTypeName) {
+    public void setTypeName(String typeName) {
         DebitTypes debitType = new DebitTypes();
-        debitType.setName(debitTypeName);
-        this.debitTypeName = debitType.getName();
+        debitType.setName(typeName);
+        this.TypeName = debitType.getName();
     }
 
     public boolean equals(Object o) {

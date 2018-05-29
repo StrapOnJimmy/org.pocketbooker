@@ -23,13 +23,13 @@
                            <items>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
-                                    <TableView prefHeight="406.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="commonTableView" editable="true" prefHeight="406.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <columns>
-                                          <TableColumn prefWidth="51.0" text="id" />
-                                          <TableColumn prefWidth="119.0" text="Дата" />
-                                          <TableColumn prefWidth="134.0" text="Тип" />
-                                          <TableColumn prefWidth="106.0" text="Вид" />
-                                          <TableColumn prefWidth="87.0" text="Сумма" />
+                                          <TableColumn fx:id="commonIdTableColumn" prefWidth="51.0" text="id" />
+                                          <TableColumn fx:id="commonDateTableColumn" prefWidth="119.0" text="Дата" />
+                                          <TableColumn fx:id="commonTypeTableColumn" prefWidth="106.0" text="Вид" />
+                                          <TableColumn fx:id="commonSumTableColumn" prefWidth="87.0" text="Сумма" />
+                                          <TableColumn fx:id="commonCurrencyTableColumn" prefWidth="134.0" text="Валюта" />
                                        </columns>
                                     </TableView>
                                  </children>
@@ -68,7 +68,7 @@
                            <items>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
-                                    <TableView fx:id="debitTableView" prefHeight="406.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="debitTableView" editable="true" prefHeight="406.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <columns>
                                           <TableColumn fx:id="debitIdTableColumn" prefWidth="51.0" text="id" />
                                           <TableColumn fx:id="debitDateTableColumn" prefWidth="119.0" text="Дата" />

@@ -10,9 +10,9 @@
 
 <AnchorPane prefHeight="36.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ToolBar prefHeight="36.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ToolBar prefHeight="37.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
-            <HBox prefHeight="0.0" prefWidth="200.0">
+            <HBox prefHeight="27.0" prefWidth="257.0">
                <children>
                   <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Добавить">
                      <items>
@@ -23,6 +23,11 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </HBox.margin>
                   </MenuButton>
+                  <Button mnemonicParsing="false" text="Редактировать">
+                     <HBox.margin>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </HBox.margin>
+                  </Button>
                   <Button mnemonicParsing="false" text="Удалить">
                      <HBox.margin>
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
