@@ -111,6 +111,7 @@ public class Controller {
         setCreditTableView(this.main);
         setDebitTableView(this.main);
         setCommonTableView(this.main);
+        showTotalSums();
     }
 
     private void showTotalSums(){
