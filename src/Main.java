@@ -43,7 +43,7 @@ public class Main {
 
         for (DebitTypes type : debitTypesList
                 ) {
-            debitDao.create(new Debit(Date.valueOf(LocalDate.now()), new BigDecimal(20000), Currency.getInstance("RUB").toString(), type));
+            debitDao.create(new Debit(Date.valueOf(LocalDate.now()), new BigDecimal(100000), Currency.getInstance("RUB").toString(), type));
         }
 
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
@@ -13,144 +14,119 @@
 
 <AnchorPane prefHeight="540.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller">
    <children>
-      <TabPane prefHeight="540.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <tabs>
-            <Tab text="Общее">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <SplitPane dividerPositions="0.8035363457760314" layoutX="6.0" orientation="VERTICAL" prefHeight="511.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <items>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+      <SplitPane dividerPositions="0.8717472118959108" orientation="VERTICAL" prefHeight="540.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TabPane fx:id="mainTabPane" prefHeight="540.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <tabs>
+                        <Tab fx:id="commonTab" text="Общее">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TableView fx:id="commonTableView" editable="true" prefHeight="406.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <columns>
-                                          <TableColumn fx:id="commonIdTableColumn" prefWidth="51.0" text="id" />
-                                          <TableColumn fx:id="commonDateTableColumn" prefWidth="119.0" text="Дата" />
-                                          <TableColumn fx:id="commonTypeTableColumn" prefWidth="106.0" text="Вид" />
-                                          <TableColumn fx:id="commonSumTableColumn" prefWidth="87.0" text="Сумма" />
-                                          <TableColumn fx:id="commonCurrencyTableColumn" prefWidth="134.0" text="Валюта" />
-                                       </columns>
-                                    </TableView>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <GridPane prefHeight="97.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="401.0" minWidth="10.0" prefWidth="382.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="116.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <Label text="Остаток средств:" GridPane.halignment="RIGHT" />
-                                          <Label text="Доход:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                                          <Label text="Расход:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                          <TableView fx:id="commonTableView" editable="true" layoutY="21.0" prefHeight="375.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columns>
+                                                <TableColumn fx:id="commonIdTableColumn" prefWidth="51.0" text="id" />
+                                                <TableColumn fx:id="commonDateTableColumn" prefWidth="119.0" text="Дата" />
+                                                <TableColumn fx:id="commonTypeTableColumn" prefWidth="106.0" text="Вид" />
+                                                <TableColumn fx:id="commonSumTableColumn" prefWidth="87.0" text="Сумма" />
+                                                <TableColumn fx:id="commonCurrencyTableColumn" prefWidth="134.0" text="Валюта" />
+                                             </columns>
+                                          </TableView>
                                        </children>
-                                    </GridPane>
+                                    </AnchorPane>
                                  </children>
                               </AnchorPane>
-                           </items>
-                        </SplitPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="debitTab" text="Доходы">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TableView fx:id="debitTableView" editable="true" prefHeight="375.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columns>
+                                                <TableColumn fx:id="debitIdTableColumn" prefWidth="51.0" text="id" />
+                                                <TableColumn fx:id="debitDateTableColumn" prefWidth="119.0" text="Дата" />
+                                                <TableColumn fx:id="debitTypeTableColumn" prefWidth="106.0" text="Вид" />
+                                                <TableColumn fx:id="debitSumTableColumn" prefWidth="87.0" text="Сумма" />
+                                                <TableColumn fx:id="debitCurrencyTableColumn" prefWidth="134.0" text="Валюта" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="creditTab" text="Расходы">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TableView fx:id="creditTableView" editable="true" prefHeight="375.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columns>
+                                                <TableColumn fx:id="idTableColumn" prefWidth="51.0" text="id" />
+                                                <TableColumn fx:id="dateTableColumn" prefWidth="119.0" text="Дата" />
+                                                <TableColumn fx:id="creditTypeTableColumn" prefWidth="106.0" text="Вид" />
+                                                <TableColumn fx:id="sumTableColumn" prefWidth="87.0" text="Сумма" />
+                                                <TableColumn fx:id="currencyTableColumn" prefWidth="134.0" text="Валюта" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="128.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <GridPane prefHeight="128.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="401.0" minWidth="10.0" prefWidth="382.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="116.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Остаток средств:" GridPane.halignment="RIGHT" />
+                              <Label text="Доход:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                              <Label text="Расход:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                              <Label fx:id="totalSumLabel" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="debitTotalSumLabel" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="creditTotalSumLabel" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                        </GridPane>
                      </children>
                   </AnchorPane>
-               </content>
-            </Tab>
-            <Tab text="Доходы">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <SplitPane dividerPositions="0.8035363457760314" layoutX="6.0" orientation="VERTICAL" prefHeight="511.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <items>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <TableView fx:id="debitTableView" editable="true" prefHeight="406.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <columns>
-                                          <TableColumn fx:id="debitIdTableColumn" prefWidth="51.0" text="id" />
-                                          <TableColumn fx:id="debitDateTableColumn" prefWidth="119.0" text="Дата" />
-                                          <TableColumn fx:id="debitTypeTableColumn" prefWidth="106.0" text="Вид" />
-                                          <TableColumn fx:id="debitSumTableColumn" prefWidth="87.0" text="Сумма" />
-                                          <TableColumn fx:id="debitCurrencyTableColumn" prefWidth="134.0" text="Валюта" />
-                                       </columns>
-                                    </TableView>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <GridPane prefHeight="97.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="401.0" minWidth="10.0" prefWidth="382.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="116.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Label text="Остаток средств:" GridPane.halignment="RIGHT" />
-                                          <Label text="Доход:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                                          <Label text="Расход:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                                       </children>
-                                    </GridPane>
-                                 </children>
-                              </AnchorPane>
-                           </items>
-                        </SplitPane>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab text="Расходы">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <SplitPane dividerPositions="0.8035363457760314" layoutX="6.0" orientation="VERTICAL" prefHeight="511.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <items>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <TableView fx:id="creditTableView" editable="true" prefHeight="406.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <columns>
-                                          <TableColumn fx:id="idTableColumn" prefWidth="51.0" text="id" />
-                                          <TableColumn fx:id="dateTableColumn" prefWidth="119.0" text="Дата" />
-                                          <TableColumn fx:id="creditTypeTableColumn" prefWidth="106.0" text="Вид" />
-                                          <TableColumn fx:id="sumTableColumn" prefWidth="87.0" text="Сумма" />
-                                          <TableColumn fx:id="currencyTableColumn" prefWidth="134.0" text="Валюта" />
-                                       </columns>
-                                    </TableView>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <GridPane prefHeight="97.0" prefWidth="498.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="401.0" minWidth="10.0" prefWidth="382.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="116.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Label text="Остаток средств:" GridPane.halignment="RIGHT" />
-                                          <Label text="Доход:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                                          <Label text="Расход:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                                       </children>
-                                    </GridPane>
-                                 </children>
-                              </AnchorPane>
-                           </items>
-                        </SplitPane>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-         </tabs>
-      </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>

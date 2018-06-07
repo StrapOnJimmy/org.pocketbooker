@@ -1,10 +1,9 @@
 package GUI;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.pocketbooker.entity.model.Credit;
 import org.pocketbooker.entity.model.CreditTypes;
@@ -13,14 +12,24 @@ import org.pocketbooker.entity.model.DebitTypes;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 
 public class Controller {
     @FXML
+    private Label totalSumLabel;
+    @FXML
+    private Label creditTotalSumLabel;
+    @FXML
+    private Label debitTotalSumLabel;
+    @FXML
     private TabPane mainTabPane;
+    @FXML
+    private Tab commonTab;
+    @FXML
+    private Tab creditTab;
+    @FXML
+    private Tab debitTab;
     @FXML
     private TableView<Credit> creditTableView;
     @FXML
@@ -92,6 +101,27 @@ public class Controller {
         commonCurrencyTableColumn.setCellValueFactory(new PropertyValueFactory<>("currency"));
         commonTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("TypeName"));
 
+        commonTab.setOnSelectionChanged(event -> {
+            ArrayList sumsList = getTotalSums(commonTableView);
+            totalSumLabel.setText(sumsList.get(0).toString());
+            creditTotalSumLabel.setText(sumsList.get(1).toString());
+            debitTotalSumLabel.setText(sumsList.get(2).toString());
+        });
+
+        creditTab.setOnSelectionChanged(event -> {
+            ArrayList sumsList = getTotalSums(creditTableView);
+            totalSumLabel.setText(sumsList.get(0).toString());
+            creditTotalSumLabel.setText(sumsList.get(1).toString());
+            debitTotalSumLabel.setText(sumsList.get(2).toString());
+        });
+
+        debitTab.setOnSelectionChanged(event -> {
+            ArrayList sumsList = getTotalSums(debitTableView);
+            totalSumLabel.setText(sumsList.get(0).toString());
+            creditTotalSumLabel.setText(sumsList.get(1).toString());
+            debitTotalSumLabel.setText(sumsList.get(2).toString());
+        });
+
     }
 
     private void setCreditTableView(Main main) throws Exception {
@@ -111,10 +141,31 @@ public class Controller {
         setCreditTableView(this.main);
         setDebitTableView(this.main);
         setCommonTableView(this.main);
-        showTotalSums();
+        ArrayList sumsList = getTotalSums(commonTableView);
+        totalSumLabel.setText(sumsList.get(0).toString());
+        creditTotalSumLabel.setText(sumsList.get(1).toString());
+        debitTotalSumLabel.setText(sumsList.get(2).toString());
     }
 
-    private void showTotalSums(){
+    private ArrayList getTotalSums(TableView tableView){
+        ArrayList<BigDecimal> sums = new ArrayList<>();
+        BigDecimal totalSum;
+        BigDecimal creditTotalSum = BigDecimal.valueOf(0);
+        BigDecimal debitTotalSum = BigDecimal.valueOf(0);
+        for (Object item: tableView.getItems()
+             ) {
+            if (item.getClass() == Credit.class){
+                Credit creditItem = (Credit) item;
+                creditTotalSum = creditTotalSum.add(creditItem.getSum());
+            } else if (item.getClass() == Debit.class){
+                Debit debitItem = (Debit) item;
+                debitTotalSum = debitTotalSum.add(debitItem.getSum());
+            }
+        }
+        totalSum = debitTotalSum.subtract(creditTotalSum);
+        sums.add(totalSum);
+        sums.add(creditTotalSum);
+        sums.add(debitTotalSum);
+        return sums;
 
-    }
-}
+    }}

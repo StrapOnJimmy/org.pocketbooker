@@ -27,7 +27,6 @@ public class Main extends Application{
     private ObservableList<Debit> debits = FXCollections.observableArrayList();
     private ObservableList<Credit> credits = FXCollections.observableArrayList();
     private ObservableList<Object> commonList = FXCollections.observableArrayList();
-    private ConnectionSource connectionSource = new JdbcConnectionSource(DefaultValues.connectionSource);
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -43,7 +42,23 @@ public class Main extends Application{
         Init.init();
     }
 
-    public Main() throws Exception {}
+    public Main() throws Exception {
+
+        ConnectionSource connectionSource = new JdbcConnectionSource(DefaultValues.connectionSource);
+
+        Dao<Debit, Integer> debitDao = DaoManager.createDao(connectionSource,Debit.class);
+
+        List<Debit> debitList = debitDao.queryForAll();
+        debits.addAll(debitList);
+
+        Dao<Credit, Integer> creditDao = DaoManager.createDao(connectionSource,Credit.class);
+
+        List<Credit> creditList = creditDao.queryForAll();
+        credits.addAll(creditList);
+
+        commonList.addAll(credits);
+        commonList.addAll(debits);
+    }
 
     /**
      *initialize a main window of a pocket booker application
@@ -95,11 +110,7 @@ public class Main extends Application{
      * return the debit observable list
      * @return
      */
-    public ObservableList<Debit> getDebits() throws Exception {
-        Dao<Debit, Integer> debitDao = DaoManager.createDao(connectionSource, Debit.class);
-
-        List<Debit> debitList = debitDao.queryForAll();
-        debits.addAll(debitList);
+    public ObservableList<Debit> getDebits(){
         return debits;
     }
 
@@ -107,19 +118,11 @@ public class Main extends Application{
      * return the credit observable list
      * @return
      */
-    public ObservableList<Credit> getCredits() throws  Exception{
-        Dao<Credit, Integer> creditDao = DaoManager.createDao(connectionSource,Credit.class);
-
-        List<Credit> creditList = creditDao.queryForAll();
-        credits.addAll(creditList);
-
+    public ObservableList<Credit> getCredits(){
         return credits;
     }
 
     public ObservableList<Object> getCommonList() {
-        commonList.addAll(credits);
-        commonList.addAll(debits);
-
         return commonList;
     }
 
